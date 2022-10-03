@@ -1,21 +1,25 @@
-def draw_snowman(guesses):
-    if guesses == 1:
+def draw_snowman(num_of_wrong_guesses):
+    if num_of_wrong_guesses == 1:
         print(
         '''
+      ________  
      /    o   \ 
      \________/
+     
         '''
         )
-    elif guesses == 2:
+    elif num_of_wrong_guesses == 2:
         print(
         '''
+       ______ 
       /   o  \ 
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
-    elif guesses == 3:
+    elif num_of_wrong_guesses == 3:
         print(
         '''
         ____
@@ -26,9 +30,10 @@ def draw_snowman(guesses):
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
-    elif guesses == 4:
+    elif num_of_wrong_guesses == 4:
         print(
         '''
        ______
@@ -41,9 +46,10 @@ def draw_snowman(guesses):
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
-    elif guesses == 5:
+    elif num_of_wrong_guesses == 5:
         print(
         '''
        ______
@@ -56,9 +62,10 @@ def draw_snowman(guesses):
       \______/
      /    o   \ 
      \________/ 
+     
         '''
         )
-    elif guesses == 6:
+    elif num_of_wrong_guesses == 6:
         print(
         '''
        ______
@@ -70,37 +77,40 @@ def draw_snowman(guesses):
   /---/   o  \---/
  /    \______/
 0    /    o   \ 
-     \________/ 
+     \________/
+     
         '''
         )
-    elif guesses == 7:
+    elif num_of_wrong_guesses == 7:
         print(
         '''
        ______
        |====|
      __ꓕ____ꓕ__
        /    \ 
-       | 0  |      0
+       | O  |      0
        \____/     /
   /---/   o  \---/
  /    \______/
 0    /    o   \ 
      \________/ 
+
         '''
         )
-    elif guesses == 8:
+    elif num_of_wrong_guesses == 8:
         print(
         '''
        ______
        |====|
      __ꓕ____ꓕ__
        /    \ 
-       | 0 0|      0
+       | O O|      0
        \____/     /
   /---/   o  \---/
  /    \______/
 0    /    o   \ 
      \________/
+     
         '''
         )
 

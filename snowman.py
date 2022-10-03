@@ -1,5 +1,6 @@
 import random
 import os
+from time import sleep
 from pyfiglet import figlet_format
 from colorama import init
 from termcolor import cprint
@@ -83,8 +84,9 @@ def snowman():
         draw_snowman(num_of_wrong_guesses)
         bold_print(word_in_progress)
         print("\n")
-        cprint("Wrong letters:", "magenta")
-        cprint(', '.join(wrong_letters), "magenta", attrs=["bold"])
+        if wrong_letters:
+            cprint("Wrong letters:", "magenta")
+            cprint(', '.join(wrong_letters), "magenta", attrs=["bold"])
         print()
         guess = input("Guess another letter (or type 'exit' to close the program): ").upper()
         print()
@@ -95,14 +97,18 @@ def snowman():
         bold_print("Oh no! You didn't guess the word, and now the evil Snowman is on the loose! 😱\n", "red")
     else:
         bold_print("Congratulations! You guessed the word and saved the world from the evil Snowman! 🥳\n", "green")
-    
+
+    draw_snowman(num_of_wrong_guesses)
     print(f"The word was '{word.capitalize()}'\n")
 
     if input("Play again? [Y / N]: ").upper() == "Y":
         clear_screen()
         snowman()
     else:
+        print()
         print("Thanks for playing!\n")
+        sleep(2)
+        raise SystemExit()
 
 
 ## RUN THE PROGRAM ##

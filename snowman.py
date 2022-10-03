@@ -109,6 +109,3 @@ def snowman():
 init()
 clear_screen()
 snowman()
-
-
-# print(u'\u2500' * 30)

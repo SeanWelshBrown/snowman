@@ -5,6 +5,7 @@ def draw_snowman(num_of_wrong_guesses):
       ________  
      /    o   \ 
      \________/
+     
         '''
         )
     elif num_of_wrong_guesses == 2:
@@ -15,6 +16,7 @@ def draw_snowman(num_of_wrong_guesses):
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
     elif num_of_wrong_guesses == 3:
@@ -28,6 +30,7 @@ def draw_snowman(num_of_wrong_guesses):
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
     elif num_of_wrong_guesses == 4:
@@ -43,6 +46,7 @@ def draw_snowman(num_of_wrong_guesses):
       \______/
      /    o   \ 
      \________/
+     
         '''
         )
     elif num_of_wrong_guesses == 5:
@@ -58,6 +62,7 @@ def draw_snowman(num_of_wrong_guesses):
       \______/
      /    o   \ 
      \________/ 
+     
         '''
         )
     elif num_of_wrong_guesses == 6:
@@ -72,7 +77,8 @@ def draw_snowman(num_of_wrong_guesses):
   /---/   o  \---/
  /    \______/
 0    /    o   \ 
-     \________/ 
+     \________/
+     
         '''
         )
     elif num_of_wrong_guesses == 7:
@@ -88,6 +94,7 @@ def draw_snowman(num_of_wrong_guesses):
  /    \______/
 0    /    o   \ 
      \________/ 
+
         '''
         )
     elif num_of_wrong_guesses == 8:
@@ -103,6 +110,7 @@ def draw_snowman(num_of_wrong_guesses):
  /    \______/
 0    /    o   \ 
      \________/
+     
         '''
         )
 

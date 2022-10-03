@@ -27,28 +27,8 @@ def find_and_replace_letters(letter, word, word_in_progress):
 def bold_print(str, color=None):
     cprint(str, color, attrs=["bold"])
 
-def intro_message(word_in_progress):
-    print()
-    cprint(figlet_format('Snowman', font='big'), "blue", attrs=['bold'])
-    cprint("Welcome to Snowman!\n", attrs=["bold"])
-    print("You have 8 guesses before the snowman comes to life and wreaks havoc!\n")
-    print("Your word:\n")
-    bold_print(word_in_progress)
-    print()
-
-def game_end(win_or_loss):
-    if win_or_loss == "win":
-        print("You guessed the word!\n")
-    else:
-        print("You didn't guess the word, and now the evil Snowman is on the loose! 😱")
-    
-    
-    print(f"The word was '{word.capitalize()}'\n")
-
-    if input("Play again? [Y / N]: ").upper() == "Y":
-        snowman()
-    else:
-        print("Thanks for playing!\n")
+def clear_screen():
+    os.system('clear')
 
 
 #~~ MAIN GAME ~~#
@@ -59,18 +39,21 @@ def snowman():
     wrong_letters = set()
     num_of_wrong_guesses = 0
 
-    intro_message(word_in_progress)
-    guess = input("Guess a letter to get started: ").upper()
+    # Intro message
+    print()
+    cprint(figlet_format('Snowman', font='big'), "blue", attrs=['bold'])
+    cprint("Welcome to Snowman!\n", attrs=["bold"])
+    print("You have 8 guesses before the snowman comes to life and wreaks havoc!\n")
+    print("Your word:\n")
+    bold_print(word_in_progress)
+    print()
+    guess = input("Guess a letter to get started (or type 'exit' to close the program): ").upper()
     print()
 
+    # Core game loop
     while True:
-        os.system('clear')
-
-        # Win/Loss conditions
-        if "_" not in word_in_progress:
-            game_end("win")
-        elif num_of_wrong_guesses == 8:
-            game_end("loss")
+        clear_screen()
+        if guess == "EXIT": raise SystemExit()
 
         # Handle invalid guesses
         if len(guess) > 1:
@@ -88,19 +71,40 @@ def snowman():
             else:
                 bold_print("Sorry, that letter isn't in the word. Try again!\n", "red")
                 wrong_letters.add(guess)
+                num_of_wrong_guesses += 1
+
+        # Win/Loss conditions
+        if "_" not in word_in_progress or num_of_wrong_guesses == 8:
+            break
         
         draw_snowman(num_of_wrong_guesses)
         bold_print(word_in_progress)
+        print("\n")
+        cprint("Wrong letters:", "magenta")
+        cprint(', '.join(wrong_letters), "magenta", attrs=["bold"])
         print()
+        guess = input("Guess another letter (or type 'exit' to close the program): ").upper()
         print()
-        cprint("Wrong letters: \n{wrong_letters}\n".format(wrong_letters = ', '.join(wrong_letters)), "magenta", attrs=["bold"])
-        guess = input("Guess another letter: ").upper()
-        print()
+
+    # Game has ended
+    clear_screen()
+    if num_of_wrong_guesses == 8:
+        bold_print("Oh no! You didn't guess the word, and now the evil Snowman is on the loose! 😱\n", "red")
+    else:
+        bold_print("Congratulations! You guessed the word and saved the world from the evil Snowman! 🥳\n", "green")
+    
+    print(f"The word was '{word.capitalize()}'\n")
+
+    if input("Play again? [Y / N]: ").upper() == "Y":
+        clear_screen()
+        snowman()
+    else:
+        print("Thanks for playing!\n")
 
 
 ## RUN THE PROGRAM ##
 init()
-os.system('clear')
+clear_screen()
 snowman()
 
 

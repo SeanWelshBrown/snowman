@@ -28,7 +28,10 @@ def bold_print(str, color=None):
     cprint(str, color, attrs=["bold"])
 
 def clear_screen():
-    os.system('clear')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 
 #~~ MAIN GAME ~~#
